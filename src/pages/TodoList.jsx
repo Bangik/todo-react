@@ -6,26 +6,41 @@ import Todos from '../components/Todos';
 
 const TodoList = () => {
   const [todos, setTodos] = useState([
-    {text: "Belajar React1"},
-    {text: "Belajar React2"},
-    {text: "Belajar React3s "}
+    {text: "Belajar React1", isComplete: false},
+    {text: "Belajar React2", isComplete: false},
+    {text: "Belajar React3s ", isComplete: false}
   ]);
 
   const [showAdd, setShowAdd] = useState(false);
 
   const addTodo = value => {
-    const addedTodo = [...todos, {text: value}];
+
+    if(todos.length < 7){
+      const addedTodo = [...todos, {text: value, isComplete: false}];
+  
+      setTodos(addedTodo);
+    }else{
+      alert('todo full')
+    }
+    
+  };
+
+  const completeTodo = (index) => {
+    const addedTodo = [...todos];
+    addedTodo[index].isComplete = !addedTodo[index].isComplete;
 
     setTodos(addedTodo);
-  };
+  }
+
+  const clearTodos = () => setTodos([])
 
   const showAddToogle = () => setShowAdd(!showAdd);
 
   return (
     <Paper>
-      <Header showAddToogle={showAddToogle} />
+      <Header showAddToogle={showAddToogle} showAdd={showAdd} clearTodos={clearTodos} />
       <TodoForm addTodo={addTodo} showAdd={showAdd} />
-      <Todos todos={todos} />
+      <Todos todos={todos} completeTodo={completeTodo} />
     </Paper>
   );
 }

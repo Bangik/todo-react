@@ -12,6 +12,11 @@ const TodoForm = ({addTodo, showAdd}) => {
       return;
     }
 
+    if(value.length > 40){
+      alert("gaboleh sampe 40");
+      return;
+    }
+
     addTodo(value);
     setValue("");
   }
