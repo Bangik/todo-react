@@ -1,15 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Paper from '../components/Paper';
 import Header from '../components/Header';
 import TodoForm from '../components/TodoForm';
 import Todos from '../components/Todos';
 
-function TodoList() {
+const TodoList = () => {
+  const [todos, setTodos] = useState([
+    {text: "Belajar React1"},
+    {text: "Belajar React2"},
+    {text: "Belajar React3s "}
+  ])
+
   return (
     <Paper>
       <Header/>
       <TodoForm/>
-      <Todos/>
+      <Todos todos={todos}  />
     </Paper>
   );
 }
