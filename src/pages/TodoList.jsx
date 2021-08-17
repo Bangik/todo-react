@@ -11,17 +11,21 @@ const TodoList = () => {
     {text: "Belajar React3s "}
   ]);
 
+  const [showAdd, setShowAdd] = useState(false);
+
   const addTodo = value => {
     const addedTodo = [...todos, {text: value}];
 
     setTodos(addedTodo);
-  }
+  };
+
+  const showAddToogle = () => setShowAdd(!showAdd);
 
   return (
     <Paper>
-      <Header/>
-      <TodoForm addTodo={addTodo} />
-      <Todos todos={todos}  />
+      <Header showAddToogle={showAddToogle} />
+      <TodoForm addTodo={addTodo} showAdd={showAdd} />
+      <Todos todos={todos} />
     </Paper>
   );
 }
