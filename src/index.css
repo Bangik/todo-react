@@ -10,6 +10,14 @@
   color: var(--main-red-color);
 }
 
+.align-left{
+  text-align: left;
+}
+
+.align-right{
+  text-align: right;
+}
+
 html{
   font-size: 10px;
 }
@@ -50,6 +58,7 @@ body, html{
 }
 
 .header-title{
+  width: 52%;
   flex: 1;
   text-align: center;
   font-size: 3.6rem;
@@ -58,6 +67,7 @@ body, html{
 }
 
 .header-btn{
+  width: 24%;
   font-size: 1.8rem;
   font-family: "Roboto", sans-serif;
   padding: 16px;

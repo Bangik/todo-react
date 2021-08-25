@@ -32,7 +32,7 @@ const TodoList = () => {
     setTodos(addedTodo);
   }
 
-  const clearTodos = () => setTodos([])
+  const clearTodos = () => !showAdd && setTodos([])
 
   const showAddToogle = () => setShowAdd(!showAdd);
 
